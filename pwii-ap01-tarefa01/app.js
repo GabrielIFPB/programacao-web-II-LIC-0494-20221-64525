@@ -1,16 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var dotenv = require('dotenv');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const dotenv = require('dotenv');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/user');
-var contatoRouter = require('./routes/contato');
-var db = require('./config/db.config');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/user');
+const contatoRouter = require('./routes/contato');
+const bookRouter = require('./routes/bookRouter');
 
-var app = express();
+const db = require('./config/db.config');
+
+const app = express();
 
 // config dotenv and sequelize
 dotenv.config();
@@ -29,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contato', contatoRouter);
+app.use("/books", bookRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
