@@ -57,7 +57,7 @@ exports.bookFindById = async(req, res) => {
 
 exports.bookFindByName = async(req, res) => {
 	try {
-		const book = await Book.findByPk(req.params.name)
+		const book = await Book.findOne(req.params.name)
 		res.json({ book: book})
 	} catch (err) {
 		res.send({ message: err.message })

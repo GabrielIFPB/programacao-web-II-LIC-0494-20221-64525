@@ -1,4 +1,5 @@
-const db = require('../config/db.config');
+
+const db = require('../config/db.config')
 const User = db.user;
 
 const bcrypt = require('bcryptjs');
@@ -20,7 +21,6 @@ exports.userCreate = async(req, res) => {
   if (user != null) {
     return res.status(400).json({ message: 'E-mail já cadastrado.'} );
   }
-
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt)
   const newUser = Object.assign({}, req.body);
