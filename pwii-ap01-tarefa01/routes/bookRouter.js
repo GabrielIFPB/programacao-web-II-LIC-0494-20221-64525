@@ -1,8 +1,10 @@
- const express = require("express")
- const router = express.Router()
 
- let bookController = require("../controllers/bookController")
+const express = require("express")
+const router = express.Router()
+const verify = require('../utils/verifyToken');
 
- router.get("/", bookController.bookList)
+let bookController = require("../controllers/bookController")
 
- module.exports = router
+router.get("/", bookController.bookList)
+
+module.exports = router
