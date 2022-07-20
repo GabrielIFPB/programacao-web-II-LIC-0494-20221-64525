@@ -1,13 +1,14 @@
- const express = require("express")
- const router = express.Router()
- const verify = require('../utils/verifyToken')
 
- let bookController = require("../controllers/bookController")
+const express = require("express")
+const router = express.Router()
+const verify = require('../utils/verifyToken')
 
- router.get("/", verify, bookController.bookList)
- router.post("/", bookController.bookCreated)
- router.put("/:id", bookController.bookUpdate)
- router.delete("/:id", bookController.bookDelete)
- router.get("/:id", bookController.bookFindById)
+let bookController = require("../controllers/bookController")
 
- module.exports = router
+router.get("/", verify, bookController.bookList)
+router.post("/", verify, bookController.bookCreated)
+router.put("/:id", verify, bookController.bookUpdate)
+router.delete("/:id", verify, bookController.bookDelete)
+router.get("/:id", verify, bookController.bookFindById)
+
+module.exports = router
