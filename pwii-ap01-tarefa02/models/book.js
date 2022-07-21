@@ -17,12 +17,12 @@ let book = {
 		allowNull: false,
 		allowEmpty: false
 	},
-	anoPublicacao: {
+	yearPublication: {
 		type: Sequelize.STRING,
 		allowNull: false,
 		allowEmpty: false
 	},
-	numeroPaginas: {
+	numberPages: {
 		type: Sequelize.STRING,
 		allowNull: false,
 		allowEmpty: false
