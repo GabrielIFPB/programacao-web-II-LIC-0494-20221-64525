@@ -5,7 +5,7 @@ const verify = require('../utils/verifyToken')
 
 let bookController = require("../controllers/bookController")
 
-router.get("/", verify, bookController.bookList)
+router.get("/", bookController.bookList)
 router.post("/", verify, bookController.bookCreated)
 router.put("/:id", verify, bookController.bookUpdate)
 router.delete("/:id", verify, bookController.bookDelete)

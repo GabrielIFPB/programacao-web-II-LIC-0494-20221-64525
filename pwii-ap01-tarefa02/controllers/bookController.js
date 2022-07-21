@@ -6,6 +6,7 @@ exports.bookList = async(req, res) => {
 	try {
 		const books = await Book.findAll()
 		res.json({ books: books })
+		// res.headers["access-control-allow-origin"] = "http://192.168.0.104:3000"
 	} catch (err) {
 		res.send({ message: err.message })
 	}
