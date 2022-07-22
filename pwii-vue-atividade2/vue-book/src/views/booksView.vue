@@ -17,7 +17,7 @@
 					<button data-bs-toggle="modal" data-bs-target="#staticBackdrop"
 					        type="button" class="btn btn-outline-danger me-2">Excluir</button>
 
-					<button v-on:click.prevent="update(index)"
+					<button v-on:click.prevent="update(book)"
 						type="button" class="btn btn-outline-warning">Update</button>
 				</div>
 			</div>
@@ -55,11 +55,11 @@ export default {
 		}
 	},
 	created() {
-		this.books = this.convertBooksToArray()
-		// this.books = api.get("/books")
-		// 	.then(response => {
-		// 		this.books = response.data
-		// 	})
+		// this.books = this.convertBooksToArray()
+		this.books = api.get("/books")
+			.then(response => {
+				this.books = response.data.books
+			})
 	},
 	methods: {
 		excluir(index) {

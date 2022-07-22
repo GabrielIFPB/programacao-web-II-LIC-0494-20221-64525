@@ -8,6 +8,7 @@
   "dependencies": {
     "bcryptjs": "",
     "cookie-parser": "",
+    "cors": "^2.8.5",
     "debug": "",
     "dotenv": "",
     "express": "",
